@@ -89,8 +89,12 @@ Sample Data:
 * Create a new security group, choose the default VPC 
 * Add a rule to the security group to allow incoming connections to the redshift cluster on port 5439 from anywhere in the world
 * Create a Redshift Cluster:
-    - Recommended type: dc2.large with 2 nodes
-    - Region: US-West-2
+    * cluster configurations:
+        - Recommended type: dc2.large 
+        - Number of nodes: 2
+        - Region: US-West-2
+    * Attach the IAM role and the VPC security group you created
+    * Under Policy Accessible check `Enable` 
 * Use the cluster endpoint and the Iam role ARN to fill up the configurations in dwh.cfg 
 
 
