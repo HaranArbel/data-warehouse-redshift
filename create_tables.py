@@ -4,12 +4,18 @@ from sql_queries import create_table_queries, drop_table_queries
 
 
 def drop_tables(cur, conn):
+    """
+    this drops the database tables if exist
+    """
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
+    """
+    this creates the staging, fact and dimension tables
+    """
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
