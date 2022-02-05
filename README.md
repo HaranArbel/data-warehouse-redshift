@@ -1,6 +1,6 @@
 # Sparkify Data Warehouse on Amazon Redshift
 
-Sparkify a music streaming startup has grown their user base and song database and want to move their processes and data onto the cloud. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
+Sparkify, a music streaming startup, has grown their user base and song database and want to move their processes and data onto the cloud. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 
 In this project, we will create an ETL pipeline to build a data warehouses hosted on Redshift. 
 
