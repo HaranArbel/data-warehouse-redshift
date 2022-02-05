@@ -86,10 +86,12 @@ Sample Data:
 
 * Create a new IAM user in your AWS account
 * Attach the AmazonS3ReadOnlyAccess policy to the role
-* Create a new security group choose the default VPC 
-* Add a rule to the security rule to allow connection to the redshift cluster on port 5439 from anywhere
-* Create a Redshift cluster (we used dc2.large with 2 nodes)
-* Use the cluster's endpoint and Iam ARN to fill up the configurations in dwh.cfg 
+* Create a new security group, choose the default VPC 
+* Add a rule to the security group to allow incoming connections to the redshift cluster on port 5439 from anywhere in the world
+* Create a Redshift Cluster:
+    - Recommended type: dc2.large with 2 nodes
+    - Region: US-West-2
+* Use the cluster endpoint and the Iam role ARN to fill up the configurations in dwh.cfg 
 
 
 To create the Staging and Analytic tables, run:
