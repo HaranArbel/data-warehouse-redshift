@@ -34,4 +34,28 @@ Sample Data:
 
 ![database_schema](/database_schema.png)
 
+#### Fact Table
+
+*Songplay_Fact* - records in event data associated with song plays.
+
+    songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
+
+#### Dimension Tables
  
+*User_dim*
+ 
+    user_id, first_name, last_name, gender, level
+
+*Song_dim*
+
+    song_id, title, artist_id, year, duration
+
+*Artist_dim* - records in event data associated with song plays.
+
+    artist_id, name, location, lattitude, longitude
+ 
+*time_dim* - records in event data associated with song plays.
+
+    start_time, hour, day, week, month, year, weekday
+
+
