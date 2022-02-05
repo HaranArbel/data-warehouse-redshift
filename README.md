@@ -36,7 +36,7 @@ Sample Data:
 
 #### Fact Table
 
-*Songplay_Fact* - records in event data associated with song plays.
+*Songplay_fact* - records in event data associated with song plays.
 
     songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
 
@@ -59,3 +59,48 @@ Sample Data:
     start_time, hour, day, week, month, year, weekday
 
 
+## Project Structure
+
+1. sql_queries.py - contains all the SQL queries used to `CREATE` and `DROP` the database tables, `COPY` data from `S3`, and `INSERT` into data into the tables.
+2. create_tables.py - connects to the database, creates the staging tables and the fact and dimension tables.
+3. etl.py - extracts `JSON` data from the `S3 bucket` and ingest it into `Redshift`. 
+4. dwh_example.cfg - contains the configurations about the `CLUSTER`, `IAM ROLE` and `S3`.
+5. queries.ipynb - 
+
+
+## How to run
+
+
+#### Prerequisites
+
+**python3** is required to run this project.
+
+**jupyter** 
+
+**ipython-sql** - to make Jupyter Notebook and SQL queries to AWS Redshift work together
+
+    $ pip3 install ipython-sql
+
+
+#### Cluster setup 
+
+* Create a new IAM user in your AWS account
+* Attach the AmazonS3ReadOnlyAccess policy to the role
+* Create a new security group choose the default VPC 
+* Add a rule to the security rule to allow connection to the redshift cluster on port 5439 from anywhere
+* Create a Redshift cluster (we used dc2.large with 2 nodes)
+* Use the cluster's endpoint and Iam ARN to fill up the configurations in dwh.cfg 
+
+
+To create the Staging and Analytic tables, run:
+
+    $ python3 create_tables.py
+
+To load the data into the tables, run:
+
+    $ python3 etl.py
+    
+To run analytical queries on the data:
+
+    $ pip3 install ipython-sql
+    $ jupyter notebooks 
