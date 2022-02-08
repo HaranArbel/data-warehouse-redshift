@@ -80,43 +80,47 @@ songplay_table_create = ("""
 
 user_table_create = ("""
     CREATE TABLE user_dim(
-        user_id         VARCHAR                 sortkey,
+        user_id         VARCHAR           NOT NULL   sortkey,
         first_name      VARCHAR(255),
         last_name       VARCHAR(255),
         gender          VARCHAR(1),
-        level           VARCHAR(50)
+        level           VARCHAR(50),
+        PRIMARY KEY (user_id)
     );
 """)
 
 song_table_create = ("""
     CREATE TABLE song_dim(
-        song_id         VARCHAR(100)            sortkey distkey,
+        song_id         VARCHAR(100)      NOT NULL   sortkey distkey,
         title           VARCHAR(255),
-        artist_id       VARCHAR(100)            NOT NULL,
+        artist_id       VARCHAR(100)      NOT NULL,
         year            INTEGER,
-        duration        DECIMAL
+        duration        DECIMAL,
+        PRIMARY KEY (song_id)
     );
 """)
 
 artist_table_create = ("""
     CREATE TABLE artist_dim(
-        artist_id       VARCHAR(100)            sortkey,
+        artist_id       VARCHAR(100)      NOT NULL   sortkey,
         name            VARCHAR(255),
         location        VARCHAR(255),
         latitude        DECIMAL,
-        longitude       DECIMAL
+        longitude       DECIMAL,
+        PRIMARY KEY (artist_id)
     );
 """)
 
 time_table_create = ("""
     CREATE TABLE time_dim(
-        start_time      TIMESTAMP               sortkey,
+        start_time      TIMESTAMP         NOT NULL   sortkey,
         hour            INTEGER,
         day             INTEGER,
         week            INTEGER,
         month           INTEGER,
         year            INTEGER,
-        weekday         INTEGER
+        weekday         INTEGER,
+        PRIMARY KEY (start_time)
     );
 """)
 
