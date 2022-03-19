@@ -65,8 +65,7 @@ Sample Data:
 2. create_tables.py - connects to the database, creates the staging tables and the fact and dimension tables.
 3. etl.py - extracts `JSON` data from the `S3 bucket` and ingest it into `Redshift`. 
 4. dwh_example.cfg - contains the configurations about the `CLUSTER`, `IAM ROLE` and `S3`.
-5. queries.ipynb - 
-
+5. queries.ipynb - contains analytical queries to test our database and ETL pipeline.
 
 ## How to run
 
